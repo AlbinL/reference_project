@@ -15,7 +15,7 @@ spec:
           type: topic
           name: se.sos.tiv.posts
           patternType: literal
-        operation: write
+        operation: Write
       - resource:
            type: topic
            name: se.sos.tiv.requests
