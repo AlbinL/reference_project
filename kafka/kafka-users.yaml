@@ -1,0 +1,28 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: tiv-api
+  namespace: edp-reference
+  labels:
+    strimzi.io/cluser: edp
+spec:
+  authentication:
+    type: tls
+  authorization:
+    type: simple
+    acls:
+      - resource:
+          type: topic
+          name: se.sos.tiv.posts
+          patternType: literal
+        operation: write
+      - resource:
+           type: topic
+           name: se.sos.tiv.requests
+           patternType: literal
+        operation: Write
+      - resource:
+          type: topic
+          name: se.sos.tiv.response
+          patternType: literal
+        operation: Read

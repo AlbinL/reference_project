@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: registry
+  name: registry
+  namespace: edp-reference
+spec:
+  host: "registry-edp-reference.apps-crc.testing"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: registry
+    weight: 100
+status: {}
