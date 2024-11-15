@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api
+  namespace: openshift-gitops
+spec:
+  project: edp-reference-project
+  source:
+    repoURL: 'https://github.com/AlbinL/reference_project'
+    targetRevision: main
+    path: api
+  destination:
+    server: https://api.crc.testing:6443
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

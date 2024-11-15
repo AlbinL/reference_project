@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: api
+  name: api
+  namespace: edp-reference
+spec:
+  host: "api-edp-reference.apps-crc.testing"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: api
+    weight: 100
+status: {}
